@@ -1,4 +1,5 @@
 import 'package:eduwall/screens/home_screen.dart';
+import 'package:eduwall/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -90,7 +91,7 @@ class WelcomeScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePage(),
+                              builder: (context) => LoginPage(),
                             ),
                           );
                         },

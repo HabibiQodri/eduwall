@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   List catNames = [
-    "Category",
-    "Classes",
-    "Free course",
-    "Book Store",
-    "Live course",
-    "LeaderBoard",
+    "Materi Vidio",
+    "Berita Pendidikan",
+    "Materi Tambahan",
+    "Jurnal",
+    "Kuis",
+    "Nilai",
   ];
 
   List<Color> catColors = const [
@@ -20,11 +20,19 @@ class HomePage extends StatelessWidget {
   ];
 
   List<Icon> catIcons = const [
-    Icon(Icons.category, color: Colors.white, size: 30),
     Icon(Icons.video_library, color: Colors.white, size: 30),
+    Icon(Icons.newspaper, color: Colors.white, size: 30),
     Icon(Icons.assignment, color: Colors.white, size: 30),
-    Icon(Icons.play_circle_fill, color: Colors.white, size: 30),
-    Icon(Icons.emoji_events, color: Colors.white, size: 30),
+    Icon(Icons.book, color: Colors.white, size: 30),
+    Icon(Icons.quiz, color: Colors.white, size: 30),
+    Icon(Icons.score, color: Colors.white, size: 30),
+  ];
+
+  List imgList = [
+    'businees',
+    'communication',
+    'medicene',
+    'tech',
   ];
 
   @override
@@ -64,7 +72,7 @@ class HomePage extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(left: 3, bottom: 15),
                   child: Text(
-                    "Edu Wall Super Apps",
+                    "EduWall Super Apps",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w600,
@@ -130,12 +138,69 @@ class HomePage extends StatelessWidget {
                         Text(
                           catNames[index],
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: Colors.black.withOpacity(0.7),
                           ),
                         ),
                       ],
+                    );
+                  },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      "Kategori",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      "Lihat Semua",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF674AEF)),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 10),
+                GridView.builder(
+                  itemCount: imgList.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio:
+                        (MediaQuery.of(context).size.height - 50 - 25) /
+                            (4 * 20),
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                  ),
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 10,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color(0xFFF5F3FF),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Image.asset(
+                                "images/${imgList[index]}.png",
+                                scale: 2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     );
                   },
                 ),
